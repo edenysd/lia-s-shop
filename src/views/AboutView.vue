@@ -1,3 +1,12 @@
+<script setup>
+import { useMeta } from 'vue-meta'
+
+useMeta({
+  title: 'About View',
+  htmlAttrs: { lang: 'en' }
+})
+</script>
+
 <template>
   <div class="about">
     <h1>This is an about page</h1>

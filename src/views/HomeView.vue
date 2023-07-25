@@ -3,8 +3,8 @@ import TheWelcome from '../components/TheWelcome.vue'
 import { useMeta } from 'vue-meta'
 
 useMeta({
-  title: 'asdfasdfdas',
-  htmlAttrs: { lang: 'en', amp: true }
+  title: 'Home View',
+  htmlAttrs: { lang: 'en' }
 })
 </script>
 
