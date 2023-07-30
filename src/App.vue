@@ -23,7 +23,13 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <router-view v-slot="{ Component, route }">
+    <!-- @see https://vuejs.org/guide/built-ins/transition.html#named-transitions -->
+    <Transition v-if="route.meta.transition" :name="route.meta.transition">
+      <component :is="Component" />
+    </Transition>
+    <component v-else :is="Component" />
+  </router-view>
 </template>
 
 <style scoped>
