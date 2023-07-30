@@ -19,6 +19,14 @@ const router = createRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue'),
+
+      /**
+       * Passing props in route config to decouple pages and views from routes
+       * @see https://router.vuejs.org/guide/essentials/passing-props.html
+       * @param {*} route
+       * @returns
+       */
+      props: (route) => route.query?.q,
       meta: {
         // marks this route has public and not require a logged user
         isPublic: true
