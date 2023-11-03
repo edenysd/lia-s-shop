@@ -1,28 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { useMeta } from 'vue-meta'
+import { RouterView } from 'vue-router'
+import Toast from 'primevue/toast'
+
+useMeta({
+  title: 'My Shop'
+})
 </script>
 
 <template>
   <!-- Needed by vue-meta -->
   <metainfo>
     <!-- Title template -->
-    <template v-slot:title="{ content }">{{ content }} | Template </template>
+    <template v-slot:title="{ content }">{{ content }} | Lia's Shop </template>
   </metainfo>
-
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <Toast />
   <router-view v-slot="{ Component, route }">
     <!-- @see https://vuejs.org/guide/built-ins/transition.html#named-transitions -->
     <Transition v-if="route.meta.transition" :name="route.meta.transition">
