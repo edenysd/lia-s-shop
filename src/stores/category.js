@@ -4,13 +4,17 @@ import { getAllCategories } from '../api/category'
 
 export const useCategoryStore = defineStore('category', () => {
   const allCategories = ref([])
+  const loadingCategories = ref([])
 
   async function fetchAllCategories() {
-    return getAllCategories().then(({ data }) => {
-      allCategories.value = data
-      return data.token
-    })
+    loadingCategories.value = true
+    return getAllCategories()
+      .then(({ data }) => {
+        allCategories.value = data
+        return data.token
+      })
+      .finally(() => (loadingCategories.value = false))
   }
 
-  return { allCategories, fetchAllCategories }
+  return { allCategories, loadingCategories, fetchAllCategories }
 })
