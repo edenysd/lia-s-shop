@@ -67,10 +67,9 @@ const confirmAddToCart = () => {
             />
 
             <Button
-              class="pl-2 pr-2 hover-scale transition-transform animation-duration-100"
+              class="w-10rem pl-2 pr-2 hover-scale transition-transform animation-duration-100"
               icon="pi pi-cart-plus"
               severity="primary"
-              outlined=""
               @click="confirmAddToCart"
             />
           </div>
