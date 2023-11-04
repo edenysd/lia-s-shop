@@ -26,7 +26,7 @@ categoryStore.fetchAllCategories()
     <div v-else class="grid w-full">
       <CategorySimpleItemComponent
         v-for="category of categoryStore.allCategories"
-        class="col-6 lg:col-3 transition-all transition-duration-300 hover-scale"
+        class="col-6 lg:col-3 transition-transform transition-duration-300 hover-scale"
         :class="productStore.selectedCategoryFilter == category ? 'selected-scale' : ''"
         :filled="productStore.selectedCategoryFilter == category"
         :key="category"
