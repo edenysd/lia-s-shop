@@ -16,7 +16,11 @@ const sidebarVisible = ref(false)
       <Toolbar>
         <template #start>
           <span class="text-2xl">
-            <i class="pi pi-gift text-blue-500" style="font-size: 1.3rem" />
+            <i
+              class="pi pi-gift text-blue-500 cursor-pointer"
+              style="font-size: 1.3rem"
+              @click="$router.push({ name: 'home' })"
+            />
             Lia's Shop
           </span>
         </template>

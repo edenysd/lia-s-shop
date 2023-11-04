@@ -1,24 +1,32 @@
 <script setup>
+import { reactive, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { useLoginStore } from '../stores/login'
 import { useMeta } from 'vue-meta'
-import { reactive, watch } from 'vue'
+import { useToast } from 'primevue/usetoast'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
 import Divider from 'primevue/divider'
-import { useRouter } from 'vue-router'
 
 const props = defineProps(['redirect'])
-
 const userData = reactive({ username: '', password: '' })
 
 const router = useRouter()
+const toast = useToast()
 
 const loginStore = useLoginStore()
 
 watch(
   () => loginStore.isLogged,
   () => {
+    toast.add({
+      severity: 'info',
+      summary: 'Welcome 👋',
+      detail: `Hello, ${loginStore.userInfo.username}`,
+      life: 3000
+    })
+
     router.push(props.redirect || '/')
   }
 )

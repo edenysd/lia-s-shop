@@ -1,19 +1,7 @@
 <script setup>
-import { useLoginStore } from '../stores/login'
 import { useMeta } from 'vue-meta'
-import { useToast } from 'primevue/usetoast'
 
 import CategoryGridComponent from '../components/CategoryGrid/CategoryGridComponent.vue'
-
-const loginStore = useLoginStore()
-const toast = useToast()
-
-toast.add({
-  severity: 'info',
-  summary: 'Welcome 👋',
-  detail: `Hello, ${loginStore.userInfo.username}`,
-  life: 3000
-})
 
 useMeta({
   title: 'Home'
