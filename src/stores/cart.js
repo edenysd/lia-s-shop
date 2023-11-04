@@ -53,7 +53,6 @@ export const useCartStore = defineStore('cart', () => {
     }
   }
   function calculateData() {
-    console.log(cart)
     totalValue.value = cart.value.reduce(
       (acum, productInCart) => acum + productInCart.amount * productInCart.snapshot.price,
       0.0
