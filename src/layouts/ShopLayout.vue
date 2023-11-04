@@ -3,12 +3,10 @@ import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Toolbar from 'primevue/toolbar'
 import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
 import SideBar from 'primevue/sidebar'
-import { useProductStore } from '../stores/product'
 import CategoryListComponent from '../components/CategoryList/CategoryListComponent.vue'
+import SearchBarProductComponent from '../components/SearchBarProduct/SearchBarProductComponent.vue'
 
-const productStore = useProductStore()
 const sidebarVisible = ref(false)
 </script>
 
@@ -24,10 +22,7 @@ const sidebarVisible = ref(false)
         </template>
 
         <template #center>
-          <span class="p-input-icon-left">
-            <i class="pi pi-search" />
-            <InputText placeholder="Search" v-model="productStore.selectedNameFilter" />
-          </span>
+          <SearchBarProductComponent />
         </template>
 
         <template #end>
