@@ -9,12 +9,12 @@ import { useCartStore } from '../../stores/cart'
 
 const props = defineProps(['visible', 'product'])
 const emits = defineEmits(['update:visible'])
-const desiredAmount = ref(0)
+const desiredAmount = ref(1)
 
 const cartStore = useCartStore()
 
 const confirmAddToCart = () => {
-  cartStore.addProduct(props.product.id, desiredAmount)
+  cartStore.addProduct(props.product.id, desiredAmount.value, props.product)
   emits('update:visible', false)
 }
 </script>
@@ -36,10 +36,7 @@ const confirmAddToCart = () => {
           alt="Image"
           style="width: 100%; height: 300px; object-fit: contain; z-index: -1"
         />
-        <div
-          class="w-full h-3rem"
-          style="position: absolute; bottom: 0px; backdrop-filter: blur(10px)"
-        ></div>
+        <div class="absolute w-full h-3rem" style="bottom: 0px; backdrop-filter: blur(10px)"></div>
         <RatingComponent
           style="position: absolute; left: 10px; bottom: 10px"
           :rate="props.product.rating.rate"
@@ -65,7 +62,7 @@ const confirmAddToCart = () => {
               inputId="minmax-buttons"
               mode="decimal"
               showButtons
-              :min="0"
+              :min="1"
               :max="10000"
             />
 
