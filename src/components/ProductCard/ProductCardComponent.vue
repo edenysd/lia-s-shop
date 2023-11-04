@@ -1,7 +1,7 @@
 <script setup>
 import Button from 'primevue/button'
 import Card from 'primevue/card'
-import RatingComponent from './RatingComponent.vue'
+import RatingComponent from '../atoms/RatingComponent.vue'
 
 const props = defineProps(['title', 'price', 'description', 'category', 'rating', 'image'])
 </script>
@@ -34,6 +34,7 @@ const props = defineProps(['title', 'price', 'description', 'category', 'rating'
               icon="pi pi-cart-plus"
               severity="primary"
               outlined=""
+              @click="() => $emit('openProductDialog')"
             />
           </div>
         </div>

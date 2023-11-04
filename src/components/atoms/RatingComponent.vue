@@ -1,6 +1,4 @@
 <script setup>
-import Button from 'primevue/button'
-
 const props = defineProps(['rate', 'count'])
 </script>
 
