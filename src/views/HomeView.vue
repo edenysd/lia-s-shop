@@ -3,7 +3,7 @@ import { useLoginStore } from '../stores/login'
 import { useMeta } from 'vue-meta'
 import { useToast } from 'primevue/usetoast'
 
-import CategoryListComponent from '../components/CategoryListComponent.vue'
+import CategoryGridComponent from '../components/CategoryGrid/CategoryGridComponent.vue'
 
 const loginStore = useLoginStore()
 const toast = useToast()
@@ -23,6 +23,6 @@ useMeta({
 <template>
   <div class="flex flex-column h-full justify-content-center align-items-center text-2xl pt-3 mb-2">
     <div class="w-fit font-light text-4xl text-primary">Lia's Shop</div>
-    <CategoryListComponent class="pt-5" />
+    <CategoryGridComponent class="pt-5" />
   </div>
 </template>

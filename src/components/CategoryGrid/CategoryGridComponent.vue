@@ -1,6 +1,6 @@
 <script setup>
-import { useCategoryStore } from '../stores/category'
-import { useProductStore } from '../stores/product'
+import { useCategoryStore } from '../../stores/category'
+import { useProductStore } from '../../stores/product'
 import ProgressBar from 'primevue/progressbar'
 import CategoryItemComponent from './CategoryItemComponent.vue'
 import { useRouter } from 'vue-router'

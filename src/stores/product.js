@@ -12,24 +12,30 @@ export const useProductStore = defineStore('product', () => {
   async function fetchProducts() {
     isLoading.value = true
     if (selectedCategoryFilter.value) {
-      getProductsByCategory(selectedCategoryFilter.value).then(({ data }) => {
-        productsByCategory.value = data
-        filterByName()
-        isLoading.value = false
-      })
+      getProductsByCategory(selectedCategoryFilter.value)
+        .then(({ data }) => {
+          productsByCategory.value = data
+          filterByName()
+        })
+        .finally(() => {
+          isLoading.value = false
+        })
     } else {
-      getAllProducts(selectedCategoryFilter.value).then(({ data }) => {
-        productsByCategory.value = data
-        filterByName()
-        isLoading.value = false
-      })
+      getAllProducts(selectedCategoryFilter.value)
+        .then(({ data }) => {
+          productsByCategory.value = data
+          filterByName()
+        })
+        .finally(() => {
+          isLoading.value = false
+        })
     }
   }
 
   function filterByName() {
     if (selectedNameFilter.value) {
-      filteredProducts.value = productsByCategory.value.map((product) =>
-        product.name.includes(selectedNameFilter.value)
+      filteredProducts.value = productsByCategory.value.filter((product) =>
+        product.title.toLowerCase().includes(selectedNameFilter.value.toLowerCase())
       )
     } else {
       filteredProducts.value = productsByCategory.value

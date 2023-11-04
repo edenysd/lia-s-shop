@@ -19,7 +19,7 @@ const loginStore = useLoginStore()
 watch(
   () => loginStore.isLogged,
   () => {
-    router.push(props.redirect)
+    router.push(props.redirect || '/')
   }
 )
 
@@ -45,6 +45,7 @@ useMeta({
         toggleMask
         placeholder="Password"
       />
+
       <Divider />
 
       <Button class="w-full mb-2" raised label="Login" @click="loginStore.login(userData)" />
