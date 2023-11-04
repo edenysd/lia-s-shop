@@ -42,6 +42,7 @@ const cartStore = useCartStore()
             (newValue) =>
               cartStore.setProduct(productInCart.productId, newValue, productInCart.snapshot)
           "
+          @remove-product="() => cartStore.removeProduct(productInCart.productId)"
         />
       </div>
       <div

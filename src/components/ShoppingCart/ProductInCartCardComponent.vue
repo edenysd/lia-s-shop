@@ -39,12 +39,13 @@ const props = defineProps(['id', 'title', 'price', 'description', 'category', 'i
                   />
 
                   <Button
-                    class="opacity-40 hover-opacity-100 hover-scale-110 transition-all"
+                    class="opacity-40 hover-opacity-100 hover-scale-110 transition-all transition-duration-100"
                     icon="pi pi-trash"
                     severity="danger"
                     text
                     rounded
                     aria-label="Remove"
+                    @click="() => $emit('remove-product')"
                   />
                 </div>
               </div>
