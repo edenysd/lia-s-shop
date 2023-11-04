@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { RouterView } from 'vue-router'
 import Toolbar from 'primevue/toolbar'
 import Button from 'primevue/button'
-import SideBar from 'primevue/sidebar'
+import ShoppingCartComponent from '../components/ShoppingCart/ShoppingCartComponent.vue'
 import CategoryListComponent from '../components/CategoryList/CategoryListComponent.vue'
 import SearchBarProductComponent from '../components/SearchBarProduct/SearchBarProductComponent.vue'
 
@@ -29,18 +29,7 @@ const sidebarVisible = ref(false)
           <Button icon="pi pi-shopping-cart" @click="sidebarVisible = !sidebarVisible" />
         </template>
       </Toolbar>
-
-      <SideBar v-model:visible="sidebarVisible" position="right">
-        <h2>
-          <i class="pi pi-shopping-cart font-bold text-blue-500" style="font-size: 1.3rem" />
-          Shopping Cart
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </SideBar>
+      <ShoppingCartComponent v-model:visible="sidebarVisible" />
       <div class="w-full md:w-8 m-auto">
         <CategoryListComponent />
       </div>
