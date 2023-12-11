@@ -17,6 +17,8 @@ const toast = useToast()
 
 const loginStore = useLoginStore()
 
+loginStore.logout()
+
 watch(
   () => loginStore.isLogged,
   () => {
