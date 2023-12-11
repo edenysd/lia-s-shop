@@ -11,7 +11,7 @@ const props = defineProps(['id', 'title', 'price', 'description', 'category', 'i
     <Card class="w-full h-full flex flex-column">
       <template #content>
         <div class="flex w-full">
-          <div class="flex align-items-center justify-content-center" style="width: 60px">
+          <div class="flex align-items-center justify-content-center mr-3" style="width: 60px">
             <img
               class="overflow"
               :src="props.image"
